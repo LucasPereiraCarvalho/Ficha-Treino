@@ -1,15 +1,18 @@
 import React from 'react';
-import {SafeAreaView, StatusBar, useColorScheme} from 'react-native';
+import { SafeAreaView, StatusBar, useColorScheme } from 'react-native';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 import GymRecord from './src/screens/GymRecord';
-import Container from './src/components/Container';
 
-const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+interface IbackgroundStyle {
+  backgroundColor: any;
+}
 
-  const backgroundStyle = {
+const App = (): JSX.Element => {
+  const isDarkMode: boolean = useColorScheme() === 'dark';
+
+  const backgroundStyle: IbackgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 

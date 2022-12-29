@@ -4,12 +4,10 @@ import {Text} from 'react-native';
 
 import {Container} from './styles';
 
-const Exercise = ({item}) => {
-  return (
-    <Container>
-      <Text>{item.exercicio}</Text>;
-    </Container>
-  );
-};
+const Exercise = ({item}) => (
+	<Container>
+		<Text>{item.exercicio}</Text>
+	</Container>
+);
 
 export default Exercise;
