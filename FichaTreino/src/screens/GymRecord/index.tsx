@@ -1,21 +1,21 @@
-import react from 'react';
-import {Button, FlatList} from 'react-native';
+import React from 'react';
+import { FlatList } from 'react-native';
 
-import {Container, ContainerButtons} from './styles';
+import { Container, Title } from './styles';
 import Exercise from '../../components/Exercise';
-import GymRecordData from '../../mocks/GymRecord.json';
+import RecordList from '../../components/RecordList';
+import { GymRecordData, IGymRecordData } from '../../mocks/GymRecord';
 
-const GymRecord = () => (
-	<Container>
-		<ContainerButtons>
-			<Button title="Ficha 1" />
-			<Button title="Ficha 2" />
-		</ContainerButtons>
-		<FlatList
-			data={GymRecordData || []}
-			renderItem={({item}) => <Exercise item={item} />}
-		/>
-	</Container>
+const GymRecord = (): JSX.Element => (
+  <Container>
+    <Title>Escolha qual Ficha você treinará hoje</Title>
+    <RecordList />
+    <FlatList
+      data={GymRecordData}
+      renderItem={({ item }) => <Exercise data={item} />}
+      keyExtractor={(item: IGymRecordData) => item.id}
+    />
+  </Container>
 );
 
 export default GymRecord;

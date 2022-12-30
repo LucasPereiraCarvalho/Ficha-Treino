@@ -1,10 +1,10 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
-`;
+import fonts from '../../styles/fonts';
 
-export const ContainerButtons = styled.View`
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin: 10px;
+export const Container = styled.View``;
+
+export const Title = styled.Text`
+  font-size: ${fonts.title};
+  font-family: ${fonts.fontFamily.regular};
 `;
