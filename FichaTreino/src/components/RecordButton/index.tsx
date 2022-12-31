@@ -5,8 +5,8 @@ import { TouchableOpacity, Text } from './styles';
 
 const RecordButton = ({ data }: { data: IRecordListData }): JSX.Element => {
   return (
-    <TouchableOpacity>
-      <Text>{data.name}</Text>
+    <TouchableOpacity isActive={data.isActive}>
+      <Text isActive={data.isActive}>{data.name}</Text>
     </TouchableOpacity>
   );
 };
