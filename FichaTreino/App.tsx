@@ -1,26 +1,18 @@
 import React from 'react';
-import { SafeAreaView, StatusBar, useColorScheme } from 'react-native';
-
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import GymRecord from './src/screens/GymRecord';
+import { ThemeContextProvider } from './src/context/ThemeContext';
 
-interface IbackgroundStyle {
-  backgroundColor: any;
-}
+const Stack = createStackNavigator();
 
 const App = (): JSX.Element => {
-  const isDarkMode: boolean = useColorScheme() === 'dark';
-
-  const backgroundStyle: IbackgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar />
-      <GymRecord />
-    </SafeAreaView>
+    <ThemeContextProvider>
+      <Stack.Navigator>
+        <Stack.Screen name="GymRecord" component={GymRecord} />
+      </Stack.Navigator>
+    </ThemeContextProvider>
   );
 };
 
