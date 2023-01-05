@@ -1,14 +1,22 @@
 import React from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import Button from '../Base/Button';
 import { IRecordListData } from '../../mocks/RecordList';
-import { TouchableOpacity, Text } from './styles';
 
-const RecordButton = ({ data }: { data: IRecordListData }): JSX.Element => {
-  return (
-    <TouchableOpacity isActive={data.isActive}>
-      <Text isActive={data.isActive}>{data.name}</Text>
-    </TouchableOpacity>
-  );
+export interface IRecordButtonProps {
+  data: IRecordListData;
+  setGymRecordData: React.Dispatch<IRecordListData[]>;
+}
+
+const RecordButton = ({ data, setGymRecordData }: IRecordButtonProps): JSX.Element => {
+  const getAsyncStorageData = async (id: string): Promise<void> => {
+    await AsyncStorage.getItem(id).then((result: string | null) => {
+      setGymRecordData(JSON.parse(result === null ? '' : result));
+    });
+  };
+
+  return <Button text={data.name} onPress={async () => await getAsyncStorageData(data.id)} />;
 };
 
 export default RecordButton;

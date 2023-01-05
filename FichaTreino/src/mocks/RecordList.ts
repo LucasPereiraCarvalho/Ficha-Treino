@@ -15,19 +15,4 @@ export const RecordListData: IRecordListData[] = [
     name: 'Terça',
     isActive: false,
   },
-  {
-    id: '2',
-    name: 'Quarta',
-    isActive: false,
-  },
-  {
-    id: '2',
-    name: 'Quinta',
-    isActive: false,
-  },
-  {
-    id: '2',
-    name: 'Sexta',
-    isActive: false,
-  },
 ];
