@@ -1,33 +1,37 @@
 import React, { useCallback, useContext, useMemo, useState } from 'react';
 import { useColorScheme } from 'react-native';
-
 import {
   Provider as PaperProvider,
   MD3DarkTheme as PaperDarkTheme,
   DefaultTheme as PaperDefaultTheme,
+  configureFonts,
+  Button,
 } from 'react-native-paper';
 import {
   NavigationContainer,
   DarkTheme as NavigationDarkTheme,
   DefaultTheme as NavigationDefaultTheme,
 } from '@react-navigation/native';
+import colors from '../styles/colors';
+
+const fontConfig = {
+  fontFamily: 'Poppins-Medium',
+};
+
+const darkcolors = colors.colors;
 
 const lightTheme = {
   ...NavigationDefaultTheme,
   ...PaperDefaultTheme,
-  colors: {
-    ...NavigationDefaultTheme.colors,
-    ...PaperDefaultTheme.colors,
-  },
+  colors,
+  fonts: configureFonts({ config: fontConfig }),
 };
 
 const darkTheme = {
   ...NavigationDarkTheme,
   ...PaperDarkTheme,
-  colors: {
-    ...NavigationDarkTheme.colors,
-    ...PaperDarkTheme.colors,
-  },
+  darkcolors,
+  fonts: configureFonts({ config: fontConfig }),
 };
 
 export type Theme = typeof lightTheme;
@@ -81,6 +85,7 @@ export const ThemeContextProvider = ({ children }: ThemeContextProviderProps): J
           }}
         >
           {children}
+          <Button onPress={toggleThemeType}>Toggle</Button>
         </ThemeContext.Provider>
       </PaperProvider>
     </NavigationContainer>

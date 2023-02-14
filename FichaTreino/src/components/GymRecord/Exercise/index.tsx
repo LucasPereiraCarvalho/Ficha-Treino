@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IGymRecordData } from '../../mocks/GymRecord';
+import { IGymRecordData } from '../../../mocks/GymRecord';
 import { Container, Image, Text } from './styles';
 
 const Exercise = ({ data }: { data: IGymRecordData }): JSX.Element => (

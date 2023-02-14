@@ -14,7 +14,9 @@
     "tsconfigRootDir": ["__dirname"]
   },
   "plugins": ["react", "react-native"],
-  "rules": {},
+  "rules": {
+    "@typescript-eslint/consistent-type-definitions": "off"
+  },
   "settings": {
     "react": {
       "version": "detect"

@@ -1,6 +1,6 @@
 export default {
   regular: '12px',
-  title: '22px',
+  title: 22,
   fontFamily: {
     regular: 'Poppins-Regular',
     bold: 'Poppins-Bold',
