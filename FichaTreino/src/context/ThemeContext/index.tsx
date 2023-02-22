@@ -12,13 +12,13 @@ import {
   DarkTheme as NavigationDarkTheme,
   DefaultTheme as NavigationDefaultTheme,
 } from '@react-navigation/native';
-import colors from '../styles/colors';
+import colors from '../../styles/colors';
 
 const fontConfig = {
-  fontFamily: 'Poppins-Medium',
+  fontFamily: 'Poppins-regular',
 };
 
-const darkcolors = colors.colors;
+const darkcolors = colors.dark;
 
 const lightTheme = {
   ...NavigationDefaultTheme,

@@ -5,8 +5,10 @@ import GymRecord from './../../screens/GymRecord';
 import CreateExercise from './../../screens/CreateExercise';
 
 export type MainStackParams = {
-  GymRecord: any;
-  CreateExercise: any;
+  GymRecord: undefined;
+  CreateExercise: {
+    selectedRecordId: string;
+  };
 };
 
 export default function Stack(): JSX.Element {

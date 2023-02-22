@@ -1,4 +1,5 @@
 import React from 'react';
+import { GymRecordContextProvider } from './src/context/GymRecordContext';
 
 import { ThemeContextProvider } from './src/context/ThemeContext';
 import Stack from './src/navigation/main';
@@ -6,7 +7,9 @@ import Stack from './src/navigation/main';
 const App = (): JSX.Element => {
   return (
     <ThemeContextProvider>
-      <Stack />
+      <GymRecordContextProvider>
+        <Stack />
+      </GymRecordContextProvider>
     </ThemeContextProvider>
   );
 };

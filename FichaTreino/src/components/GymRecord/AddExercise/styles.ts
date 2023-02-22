@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
-import { Button } from 'react-native-paper';
+import { Button as ButtonPaper } from 'react-native-paper';
 
-export const StyledButton = styled(Button).attrs({
+export const Button = styled(ButtonPaper).attrs({
   mode: 'contained',
   contentStyle: { height: 50 },
 })`

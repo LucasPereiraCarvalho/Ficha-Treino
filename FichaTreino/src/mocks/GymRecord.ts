@@ -1,9 +1,4 @@
-export interface IGymRecordData {
-  id: string;
-  image?: string;
-  name: string;
-  weight?: number;
-}
+import { IGymRecordData } from '../context/GymRecordContext';
 
 export const GymRecordData: IGymRecordData[] = [
   {

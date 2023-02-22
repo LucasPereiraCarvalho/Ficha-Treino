@@ -1,42 +1,31 @@
-import React from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useContext } from 'react';
 import { useTheme } from 'react-native-paper';
 
 import { IRecordListData } from '../../../../mocks/RecordList';
-import { StyledButton } from './styles';
+import { GymRecordContext } from '../../../../context/GymRecordContext';
+import { Button } from './styles';
 
 export interface IRecordButtonProps {
   data: IRecordListData;
-  setGymRecordData: React.Dispatch<IRecordListData[]>;
   setSelectedId: React.Dispatch<string>;
 }
 
-const RecordButton = ({
-  data,
-  setGymRecordData,
-  setSelectedId,
-}: IRecordButtonProps): JSX.Element => {
-  const getAsyncStorageData = async (id: string): Promise<void> => {
-    await AsyncStorage.getItem(id).then((result: string | null) => {
-      if (result === null) return;
-      setGymRecordData(JSON.parse(result === null ? '' : result));
-    });
-  };
-
+const RecordButton = ({ data, setSelectedId }: IRecordButtonProps): JSX.Element => {
+  const { id, name } = data;
+  const { refatch } = useContext(GymRecordContext);
   const theme = useTheme();
 
   return (
-    <StyledButton
+    <Button
       buttonColor={theme.colors.onBackground}
-      mode="contained"
       // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onPress={async () => {
-        setSelectedId(data.id);
-        await getAsyncStorageData(data.id);
+        setSelectedId(id);
+        await refatch(id);
       }}
     >
-      {data.name}
-    </StyledButton>
+      {name}
+    </Button>
   );
 };
 

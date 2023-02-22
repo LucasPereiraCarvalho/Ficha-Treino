@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
-
-import colors from '../../../styles/colors';
+import { Text as TextPaper } from 'react-native-paper';
 
 export const Container = styled.View`
   flex-direction: row;
@@ -8,7 +7,6 @@ export const Container = styled.View`
   margin: 10px 0px;
   padding: 10px;
   border-radius: 12px;
-  background-color: ${colors.background};
 `;
 
 export const Image = styled.Image`
@@ -16,7 +14,7 @@ export const Image = styled.Image`
   height: 50px;
 `;
 
-export const Text = styled.Text`
+export const Text = styled(TextPaper)`
   text-align: center;
   margin: 10px;
 `;

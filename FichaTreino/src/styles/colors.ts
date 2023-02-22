@@ -42,7 +42,7 @@ export default {
   backdrop: 'rgba(49, 47, 56, 0.4)',
 
   // React-Native-Paper dark theming
-  colors: {
+  dark: {
     primary: 'rgb(198, 191, 255)',
     onPrimary: 'rgb(40, 0, 160)',
     primaryContainer: 'rgb(60, 0, 222)',

@@ -7,24 +7,17 @@ import AddRecordButton from '../RecordList/AddRecordButton';
 import { RecordListData, IRecordListData } from '../../../mocks/RecordList';
 
 interface IRecordListProps {
-  setGymRecordData: React.Dispatch<IRecordListData[]>;
   setSelectedId: React.Dispatch<string>;
 }
 
-const RecordList = ({ setGymRecordData, setSelectedId }: IRecordListProps): JSX.Element => {
+const RecordList = ({ setSelectedId }: IRecordListProps): JSX.Element => {
   return (
     <StyledContainer>
       <FlatList
         showsHorizontalScrollIndicator={false}
         horizontal={true}
         data={RecordListData}
-        renderItem={({ item }) => (
-          <RecordButton
-            data={item}
-            setGymRecordData={setGymRecordData}
-            setSelectedId={setSelectedId}
-          />
-        )}
+        renderItem={({ item }) => <RecordButton data={item} setSelectedId={setSelectedId} />}
         ListFooterComponent={() => <AddRecordButton />}
         keyExtractor={(item: IRecordListData) => item.id}
       />
